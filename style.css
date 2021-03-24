@@ -87,6 +87,7 @@ html{
 }
 
 /* menu btn styling */
+
 .menu-btn{
     color: #fff;
     font-size: 23px;
@@ -100,7 +101,7 @@ html{
     position: fixed;
     height: 45px;
     width: 42px;
-    background: crimson;
+    background: green;
     right:15px;
     bottom: 10px;
     text-align: center;
@@ -119,8 +120,12 @@ html{
     opacity: 1;
     pointer-events: auto;
 }
+.scroll-up-btn:hover{
+    filter: brightness(70%);
+}
 
 /* home section styling */
+
 .home{
     display: flex;
     background: url(images/878.jpg) no-repeat center;
@@ -165,7 +170,9 @@ html{
     background: none;
     color: crimson;
 }
+
 /* all similar content styling code */
+
 section{
     padding: 100px 0;
     background: lightblue;
@@ -211,6 +218,7 @@ section .title::after{
     background: #fff;
     transform: translateX(-50%);
 }
+
 /* about section styling */
 
 .about .title::after{
@@ -258,6 +266,7 @@ section .title::after{
 }
 
 /* service section styling */
+
 .services, .teams{
     background: #111;
     color: #fff;
