@@ -101,7 +101,7 @@ html{
     position: fixed;
     height: 45px;
     width: 42px;
-    background: green;
+    background:green;
     right:15px;
     bottom: 10px;
     text-align: center;
@@ -180,8 +180,7 @@ section{
 .about, .services, .skills, .teams, .contact, footer{
     font-family: 'Poppins',sans-serif;
 }
-.about .about-content, 
-.services .serv-content,
+.about .about-content,
 .skills .skills-content,
 .contact .contact-content{
     display: flex;
@@ -265,16 +264,7 @@ section .title::after{
     background: none;
 }
 
-/* service section styling */
-
-.services, .teams{
-    background: #111;
-    color: #fff;
-}
-.services .title::before,
-.teams .title::before{
-    background: #fff;
-}
+/* service section styling
 
 .services .title::after,
 .teams .title::after{
@@ -311,13 +301,21 @@ section .title::after{
     font-size: 25px;
     font-weight:500;
     margin: 10px 0 7px 0;
-}
+}*/
 
 /* skills section styling */
 
+.skills, .contact{
+    background: #111;
+    color: #fff;
+}
+.skills .title::before,
+.contact .title::before{
+    background: #fff;
+}
 .skills .title::after{
     content: "what i know";
-    background: lightblue;
+    background: #111;
 }
 .skills .skills-content .column{
     width: calc(50% - 30px);
@@ -394,10 +392,11 @@ section .title::after{
 
 .teams .title::after{
     content: "who with me";
+    background: lightblue;
 }
 .teams .carousel .card{
-    background: #222;
-    border-radius: 6px;
+    background: black;
+    border-radius: 10px;
     padding: 25px 35px;
     text-align: center;
     transition: all 0.3s ease;
@@ -418,7 +417,11 @@ section .title::after{
 .teams .carousel .card .text{
     font-size:25px;
     font-weight: 500;
+    color: #fff;
     margin: 10px 0 7px 0;
+}
+.teams .carousel .card p{
+    color: #ff1;
 }
 .teams .carousel .card img{
     height: 150px;
@@ -457,7 +460,7 @@ section .title::after{
 
 .contact .title::after{
     content: "get in touch";
-    background: lightblue;
+    background: #111;
 }
 .contact .contact-content .column{
     width: calc(50% - 30px);
@@ -489,7 +492,7 @@ section .title::after{
     font-weight:500;
 }
 .contact .contact-content .info .sub-title{
-    color: #333;
+    color: #ff1;
 }
 .contact .right form .fields{
     display: flex;
@@ -545,17 +548,20 @@ section .title::after{
     color: crimson;
     background: none;
 }
+
 /* footer section styling */
 
 footer{
-    background: #111;
+    background: lightblue;
     padding: 15px 23px;
     color: #fff;
     text-align: center;
+    font-weight: 600;
 }
 footer span a{
     color: crimson;
     text-decoration: none;
+    font-weight: 800;
 }
 footer span a:hover{
     text-decoration: underline;
@@ -606,7 +612,7 @@ footer span a:hover{
     }
     .navbar .menu li a{
         display: inline-block;
-        margin: 20px 0;
+        margin: 30px 0;
         font-size: 25px;
     }
     .home .home-content .text-2{
@@ -633,10 +639,6 @@ footer span a:hover{
     .about .about-content .right{
         flex: 100%;
     }
-    .services .serv-content .card{
-        width: calc(50% - 10px);
-        margin-bottom: 20px;
-    }
     .skills .skills-content .column{
         width:100%;
         margin-bottom: 35px;
@@ -659,9 +661,6 @@ footer span a:hover{
     .home .home-content a{
         font-size: 20px;
     }
-    .services .serv-content .card{
-        width:100%;
-    }
 }
 @media (max-width:500px){
     .home .home-content .text-2{
@@ -669,8 +668,5 @@ footer span a:hover{
     }
     .home .home-content .text-3{
         font-size: 30px;
-    }
-    .services .title::after{
-        font-size:18px;
     }
 }
