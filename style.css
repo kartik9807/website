@@ -18,20 +18,55 @@ html{
     color: #fff;
 }
 
-/* custom scroll bar */
+/*custom scrollbar*/
 
-::-webkit-scrollbar {
-    width: 10px;
+::-webkit-scrollbar{
+    width: 0;
 }
-::-webkit-scrollbar-track {
-    background: #0a0a0a;
+#scrollPath{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 7px;
+    height: 100%;
+    background: rgba(255,255,255,0.05);
 }
-::-webkit-scrollbar-thumb {
-    background: #888;
+#progressbar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 7px;
+    height: 0;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    animation: animate 5s linear infinite;
 }
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
+@keyframes animate{
+    0%,100%{
+        filter: hue-rotate(0deg);
+    }
+    50%{
+        filter: hue-rotate(360deg);
+    }
+}
+#progressbar:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    filter: blur(10px);
+}
+#progressbar:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    filter: blur(10px);
 }
 
 /* navbar styling */
@@ -665,6 +700,9 @@ footer span a:hover{
     }
     .home .home-content a{
         font-size: 20px;
+    }
+    #progressbar{
+        display: none;
     }
 }
 @media (max-width:500px){
