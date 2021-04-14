@@ -180,7 +180,7 @@ html{
 
 section{
     padding: 100px 0;
-    background: lightblue;
+    background: #12b5ff;
 }
 .about, .services, .skills, .teams, .contact, footer{
     font-family: 'Poppins',sans-serif;
@@ -227,7 +227,7 @@ section .title::after{
 
 .about .title::after{
     content: 'who i am';
-    background: lightblue;
+    background: #12b5ff;
 }
 .about .about-content .left{
     width: 45%;
@@ -397,7 +397,7 @@ section .title::after{
 
 .teams .title::after{
     content: "who with me";
-    background: lightblue;
+    background: #12b5ff;
 }
 .teams .carousel .card{
     background: black;
@@ -557,7 +557,7 @@ section .title::after{
 /* footer section styling */
 
 footer{
-    background: lightblue;
+    background: #12b5ff;
     padding: 15px 23px;
     color: rgb(255, 255, 255);
     text-align: center;
