@@ -1,337 +1,886 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My website</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/logo.webp">        
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-    <!-- owl-carousel     -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-    <!-- typing text -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
-</head>
-<body>
+/* font awesome link for css */
 
-    <!-- custom scrollbar  -->
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
-    <div id="progressbar"></div>
-    <div id="scrollPath"></div>
+/* commom styling */
 
-    <!-- scroll-up botton -->
-    
-    <div class="scroll-up-btn">
-        <i class="fas fa-angle-up"></i>
-    </div>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+::selection{
+    background:rgb(142, 73, 232);
+    color: #fff;
+}
 
-    <!-- navbar styling -->
+/*custom scrollbar*/
 
-    <nav class="navbar">
-        <div class="max-width">
-            <div class="logo"><a href="#">Portfo<span>lio.</span></a></div>
-            <ul class="menu">
-                <li><a href="#home" class="menu-btn">Home</a></li>
-                <li><a href="#about" class="menu-btn">About</a></li>
-                <li><a href="#skills" class="menu-btn">Skills</a></li>
-                <li><a href="#teams" class="menu-btn">Teams</a></li>
-                <li><a href="#contact" class="menu-btn">Contact</a></li>
-                <li><a href="#Footer" class="menu-btn">Footer</a></li>
-            </ul>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
+::-webkit-scrollbar{
+    width: 0;
+}
+#scrollPath{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 7px;
+    height: 100%;
+    background: rgba(255,255,255,0.05);
+}
+#progressbar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 7px;
+    height: 0;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    animation: animate 5s linear infinite;
+}
+@keyframes animate{
+    0%,100%{
+        filter: hue-rotate(0deg);
+    }
+    50%{
+        filter: hue-rotate(360deg);
+    }
+}
+#progressbar:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    filter: blur(10px);
+}
+#progressbar:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    filter: blur(10px);
+}
 
-    <!-- home section start -->
+/* navbar styling */
 
-    <section class="home" id="home">
-        <div class="max-width">
-            <div class="home-content">
-                <div class="text-1">Hello, my name is</div>
-                <div class="text-2">Kartik Shah</div>
-                <div class="text-3">And I'm a <span class="typing"></span></div>
-                <a href="#contact">Hire me</a>
-            </div>
-        </div>
-    </section>
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 30px 0;
+    font-family: 'ubuntu',sans-serif;
+    transition: all 0.5s ease;
+}
+.navbar.sticky{
+    padding: 15px 0;
+    background: crimson;
+    box-shadow: -10px 10px 50px rgba(0,0,0.2);
+}
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+.navbar .max-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo a{
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+}
+.navbar .logo a span{
+    color: crimson;
+    transition: all 0.5s ease;
+}
+.navbar.sticky .logo a span{
+    color: #fff;
+}
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+.navbar .menu li a{
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+.navbar .menu li a:hover{
+    color: crimson;
+}
+.navbar.sticky .menu li a:hover{
+    color: cyan;
+    transition: color 0.3s ease;
+}
 
-    <!-- about section start -->
+/* menu btn styling */
 
-    <section class="about" id="about">
-        <div class="max-width">
-            <h2 class="title">About me</h2>
-            <div class="about-content">
-                <div class="column left">
-                    <img src="images/profile-1.jpeg" alt="logo">
-                </div>
-                <div class="column right">
-                    <div class="text">I'm Kartik and I'm a <span class="typing-2"></span></div>
-                    <p>I am website developer and Python programer.</p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ut voluptatum eveniet doloremque autem excepturi eaque, sit laboriosam voluptatem nisi delectus. Facere explicabo hic minus accusamus alias fuga nihil dolorum quae. Explicabo illo unde, odio consequatur ipsam possimus veritatis, placeat, ab molestiae velit inventore exercitationem consequuntur blanditiis omnis beatae. Dolor iste excepturi ratione soluta quas culpa voluptatum repudiandae harum non.</p>
-                    <a href="#">Download CV</a>
-                </div>
-            </div>
-        </div>
-    </section>
+.menu-btn{
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
 
-    <!-- services section start -->
-<!-- 
-    <section class="services" id="services">
-        <div class="max-width">
-            <h2 class="title">My services</h2>
-            <div class="serv-content">
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-paint-brush"></i>
-                        <div class="text">Web Design</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores architecto asperiores at. Voluptatum, assumenda modi.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-chart-line"></i>
-                        <div class="text">Advertising</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores architecto asperiores at. Voluptatum, assumenda modi.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-code"></i>
-                        <div class="text">Apps Designs</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores architecto asperiores at. Voluptatum, assumenda modi.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
+/* scroll up btn styling */
 
-    <!-- skill section start  -->
+.scroll-up-btn{
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background:green;
+    right:15px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color:#fff;
+    z-index: 9999;
+    font-size: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.scroll-up-btn.show{
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+.scroll-up-btn:hover{
+    filter: brightness(70%);
+}
 
-    <section class="skills" id="skills">
-        <div class="max-width">
-            <h2 class="title">My skills</h2>
-            <div class="skills-content">
-                <div class="column left">
-                    <div class="text">My creative skills & experiences.</div>
-                    <p>I am website developer and Python programer.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repellat fuga a odit facere expedita sequi blanditiis odio sit atque laboriosam ea dolorum laborum aliquam porro, tenetur labore consequatur nam dicta itaque cumque repellendus ipsam quas minus! Earum nihil porro nostrum error similique reiciendis eius ratione. Quas cupiditate aliquid, in quaerat magnam repudiandae provident facilis, quasi dolorum beatae nostrum dolores!</p>
-                    <a href="">Read more</a>
-                </div>
-                <div class="column right">
-                    <div class="bars">
-                        <div class="info">
-                            <span>HTML</span>
-                            <span>67%</span>
-                        </div>
-                        <div class="line html"></div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>CSS</span>
-                            <span>50%</span>
-                        </div>
-                        <div class="line css"></div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>JavaScript</span>
-                            <span>25%</span>
-                        </div>
-                        <div class="line js"></div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>Python</span>
-                            <span>45%</span>
-                        </div>
-                        <div class="line python"></div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>C++</span>
-                            <span>21%</span>
-                        </div>
-                        <div class="line c"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* home section styling */
 
-    <!-- team section start -->
+.home{
+    display: flex;
+    background: url(images/878.jpg) no-repeat center;
+    height: 100vh;
+    color: #fff;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 500px;
+    font-family: 'ubuntu',sans-serif;
+}
+.home .max-width{
+    margin: auto 0 auto 30px;
+}
+.home .home-content .text-1{
+    font-size: 27px;
+}
+.home .home-content .text-2{
+    font-size: 75px;
+    font-weight: 600;
+    margin-left:-3px;
+}
+.home .home-content .text-3{
+    font-size: 40px;
+    margin: 5px 0;
+}
+.home .home-content .text-3 span{
+    color: crimson;
+    font-weight: 500;
+}
+.home .home-content a{
+    display: inline-block;
+    background: crimson;
+    color: #fff;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+}
+.home .home-content a:hover{
+    background: none;
+    color: crimson;
+}
 
-    <section class="teams" id="teams">
-        <div class="max-width">
-            <h2 class="title">My teams</h2>
-            <div class="carousel owl-carousel">
-                <div class="card">
-                    <div class="box">
-                        <img src="images/profile-1.jpeg" alt="logo">
-                        <div class="text">Kartik Shah</div>
-                        <p>I am website developer and Python programer.</p>
-                    </div>
-                </div>
-                <div class="card">
-                        <div class="box">
-                            <img src="images/profile-4.jpeg" alt="logo">
-                            <div class="text">Shivang Shah</div>
-                            <p>I am website developer and C++ programer.</p>
-                        </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <img src="images/profile-2.jpeg" alt="logo">
-                        <div class="text">Kushagara Gupta</div>
-                        <p>I am website developer and Java programer.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <img src="images/profile-3.jpeg" alt="logo">
-                        <div class="text">Khushbu patel</div>
-                        <p>I am website developer and PHP programer.</p>
-                    </div>
-                </div>
+/* all similar content styling code */
 
-                <div class="card">
-                    <div class="box">
-                        <img src="images/profile-5.jpeg" alt="logo">
-                        <div class="text">Ayushi Gupta</div>
-                        <p>I am website developer and MySQL programer.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+section{
+    padding: 100px 0;
+    background: #12b5ff;
+}
+.about, .services, .skills, .teams, .contact, footer{
+    font-family: 'Poppins',sans-serif;
+}
+.about .about-content,
+.skills .skills-content,
+.contact .contact-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+section .title{
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    font-family: 'ubuntu',sans-serif;
+}
+section .title::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 180px;
+    height: 3px;
+    background: #111;
+    transform: translateX(-50%);
+}
+section .title::after{
+    position: absolute;
+    bottom: -14px;
+    font-size: 20px;
+    color: crimson;
+    left: 50%;
+    padding: 5px;
+    background: #fff;
+    transform: translateX(-50%);
+}
 
-    <!-- contact section start -->
+/* about section styling */
+.about .title::after{
+    content: 'who i am';
+    background: #12b5ff;
+}
+.about .about-content .left{
+    width: 45%;
+}
+.about .about-content .left img{
+    height: 400px;
+    width:400px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.about .about-content .right{
+    width: 55%;
+}
+.about .about-content .right .text{
+    font-size:25px;
+    font-weight: 600;
+    margin-bottom: 10px; 
+}
+.about .about-content .right .text span{
+    color: crimson;
+}
+.about .about-content .right p{
+    text-align: justify;
+}
+.about .about-content .right a{
+    display: inline-block;
+    background: crimson;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 30px;
+    font-weight: 500;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+}
+.about .about-content .right a:hover{
+    color: crimson;
+    background: none;
+}
 
-    <section class="contact" id="contact">
-        <div class="max-width">
-            <h2 class="title">Contact me</h2>
-            <div class="contact-content">
-                <div class="column left">
-                    <div class="text">Get in Touch</div>
-                    <p>I am website developer and Python programer.</p><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat consequatur autem aperiam at sit ex voluptatum odio sunt laborum blanditiis!</p>
-                    <div class="icons">
-                        <div class="row">
-                            <i class="fas fa-user"></i>
-                            <div class="info">
-                                <div class="head">Name</div>
-                                <div class="sub-title">Kartik Shah</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="info">
-                                <div class="head">Address</div>
-                                <div class="sub-title">Nandanvan, nagpur</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-envelope"></i>
-                            <div class="info">
-                                <div class="head">Email</div>
-                                <div class="sub-title">abc@gmail.com</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column right">
-                    <div class="text">Message me</div>
-                    <form action="#">
-                        <div class="fields">
-                            <div class="field name">
-                                <input type="text" placeholder="Name" required>
-                            </div>
-                            <div class="field email">
-                                <input type="email" placeholder="Email" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <input type="text" placeholder="Subject" required>
-                        </div>
-                        <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
-                        </div>
-                        <div class="button">
-                            <button type="submit">Send message</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+/* service section styling
 
-    <!-- footer section start -->
+.services .title::after,
+.teams .title::after{
+    background: #111;
+    content: "what i provide";
+}
+.services .serv-content .card{
+    width: calc(33% - 20px);
+    background: #222;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.services .serv-content .card:hover{
+    background: crimson;
+}
+.services .serv-content .card:hover .box{
+    transform:scale(1.05);
+}
+.services .serv-content .card .box{
+    transition: all 0.3s ease;
+}
+.services .serv-content .card i{
+    font-size: 50px;
+    color: crimson;
+    transition: color 0.3s ease;
+}
+.services .serv-content .card:hover i{
+    color: #fff;
+}
+.services .serv-content .card .text{
+    font-size: 25px;
+    font-weight:500;
+    margin: 10px 0 7px 0;
+}*/
 
-        <footer id="Footer">
-      <div class="main-content">
-        <div class="left box">
-          <h2>About us</h2>
-          <div class="content">
-            <p><a href="">KartikShah</a> is a YouTube channel where you can learn web designing, web development, ui/ux designing, html css tutorial, hover animation and effects, javascript and jquery tutorial and related so on.</p>
-            <div class="social">
-              <a href="#"><span class="fab fa-facebook-f"></span></a>
-              <a href="#"><span class="fab fa-twitter"></span></a>
-              <a href="#"><span class="fab fa-instagram"></span></a>
-              <a href="#"><span class="fab fa-youtube"></span></a>
-            </div>
-          </div>
-        </div>
+/* skills section styling */
 
-        <div class="center box">
-          <h2>Address</h2>
-          <div class="content">
-            <div class="place">
-              <span class="fas fa-map-marker-alt"></span>
-              <span class="text">Nandanvan, Nagpur</span>
-            </div>
-            <div class="phone">
-              <span class="fas fa-phone alt"></span>
-              <span class="text">9503132449</span>
-            </div>
-            <div class="email">
-              <span class="fas fa-envelope"></span>
-              <span class="text">abc@example.com</span>
-            </div>
-          </div>
-        </div>
+.skills, .contact{
+    background: #111;
+    color: #fff;
+}
+.skills .title::before,
+.contact .title::before{
+    background: #fff;
+}
+.skills .title::after{
+    content: "what i know";
+    background: #111;
+}
+.skills .skills-content .column{
+    width: calc(50% - 30px);
+}
+.skills .skills-content .left .text{
+    font-size:20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.skills .skills-content .left p{
+    text-align: justify;
+}
+.skills .skills-content .left a{
+    display: inline-block;
+    background: crimson;
+    color: #fff;
+    font-size: 18px;
+    padding: 8px 16px;
+    font-weight: 500;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+}
+.skills .skills-content .left a:hover{
+    background: none;
+    color: crimson;
+}
+.skills .skills-content .right .bars{
+    margin-bottom: 15px;
+}
+.skills .skills-content .right .info{
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+.skills .skills-content .right span{
+    font-weight: 600;
+    font-size: 18px;
+    color:crimson;
+}
+.skills .skills-content .right .line{
+    height: 5px;
+    width: 100%;
+    background: grey;
+    position: relative;
+}
+.skills .skills-content .right .line::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: linear-gradient(80deg,#03a9f4,#f441a5,#ffeb3b);
+}
+.skills-content .right .html::before{
+    width: 67%;
+}
+.skills-content .right .css::before{
+    width: 50%;
+}
+.skills-content .right .js::before{
+    width: 25%;
+}
+.skills-content .right .python::before{
+    width: 45%;
+}
+.skills-content .right .c::before{
+    width: 21%;
+}
 
-        <div class="right box">
-          <h2>Contact us</h2>
-          <div class="content">
-            <form action="#">
-              <div class="email">
-                <div class="text">Email</div>
-                <input type="email" placeholder="Email" required></div>
-              <div class="msg">
-                <div class="text">Message</div>
-                <textarea cols="3" rows="3" placeholder="Message" required></textarea>
-              </div>
-              <div class="btn">
-                <button type="submit">Send message</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="bottom">
-        <center>
-          <span class="credit">Created By <a href="https://github.com/kartik9807">Kartik Shah</a> | </span>
-          <span class="far fa-copyright"></span><span> 2021 All rights reserved.</span>
-        </center>
-      </div>
-    </footer>
+/* team section styling */
 
-    <script src="java.js"></script>
-</body>
-</html>
+.teams .title::after{
+    content: "who with me";
+    background: #12b5ff;
+}
+.teams .carousel .card{
+    background: black;
+    border-radius: 10px;
+    padding: 25px 35px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card:hover{
+    background: crimson;
+}
+.teams .carousel .card .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card:hover .box{
+    transform: scale(1.05);
+}
+.teams .carousel .card .text{
+    font-size:25px;
+    font-weight: 500;
+    color: #fff;
+    margin: 10px 0 7px 0;
+}
+.teams .carousel .card p{
+    color: #ff1;
+}
+.teams .carousel .card img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid crimson;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card:hover img{
+    border-color: #fff;
+}
+.owl-dots{
+    text-align: center;
+    margin-top: 20px;
+}
+.owl-dot{
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    outline: none!important;
+    border-radius: 50%;
+    border: 2px solid crimson!important;
+    transition: all 0.3s ease;
+}
+.owl-dot.active{
+    width: 35px;
+    border-radius: 14px;
+}
+.owl-dot.active,
+.owl-dot:hover{
+    background: crimson!important;
+}
+
+/* contact section styling */
+
+.contact .title::after{
+    content: "get in touch";
+    background: #111;
+}
+.contact .contact-content .column{
+    width: calc(50% - 30px);
+}
+.contact .contact-content .text{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.contact .contact-content .left p{
+    text-align: justify;
+}
+.contact .contact-content .left .icons{
+    margin: 10px 0;
+}
+.contact .contact-content .row{
+    display: flex;
+    height: 65px;
+    align-items: center;
+}
+.contact .contact-content .row .info{
+    margin-left: 30px;
+}
+.contact .contact-content .row i{
+    font-size: 25px;
+    color:crimson;
+}
+.contact .contact-content .info .head{
+    font-weight:500;
+}
+.contact .contact-content .info .sub-title{
+    color: #ff1;
+}
+.contact .right form .fields{
+    display: flex;
+}  
+.contact .right form .field,
+.contact .right form .fields .field{
+    height: 45px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.contact .right form .textarea{
+    height: 80px;
+    width: 100%;
+}
+.contact .right form .name{
+    margin-right: 10px;
+}
+.contact .right form .email{
+    margin-left: 10px;
+}
+.contact .right form .field input,
+.contact .right form .textarea textarea{
+    height: 100%;
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-family: 'Poppins' ,sans-serif;
+}
+.contact .right form .textarea textarea{
+    padding-top: 10px;
+    resize: none;
+}
+.contact .right form .button{
+    height: 47px;
+    width: 170px;
+}
+.contact .right form .button button{
+    width: 100%;
+    height: 100%;
+    border: 2px solid crimson;
+    background: crimson;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.contact .right form .button button:hover{
+    color: crimson;
+    background: none;
+}
+
+/*footer styling*/
+
+.content1{
+  position: relative;
+  margin: 130px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+.content1 .text{
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.content1 .p{
+  font-size: 2.1875rem;
+  font-weight: 600;
+}
+footer{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  color: #ddd9d9;
+  background: #12b5ff;
+}
+.main-content{
+  display: flex;
+  color: #fff;
+}
+.main-content .box{
+  flex-basis: 50%;
+  padding: 10px 20px;
+}
+
+.box h2{
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+}
+.box .content{
+  margin: 20px 0 0 0;
+  position: relative;
+}
+.box .content:before{
+  position: relative;
+  content: '';
+  top: -10px;
+  height: 2px;
+  width: 100%;
+  background: #1a1a1a;
+}
+.box .content:after{
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 15%;
+  background: #f12020;
+  top: -10px;
+}
+.left .content p{
+  text-align: justify;
+}
+.left .content a{
+  color: crimson;
+  font-weight: 600;
+}
+.left .content .social{
+  margin: 20px 0 0 0;
+}
+.left .content .social a{
+  padding: 0 2px;
+}
+.left .content .social a span{
+  height: 40px;
+  width: 40px;
+  background: #1a1a1a;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.left .content .social a span:hover{
+  background: #f12020;
+}
+.center .content .fas{
+  font-size: 1.4375rem;
+  background: #1a1a1a;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.center .content .fas:hover{
+  background: #f12020;
+}
+.center .content .text{
+  font-size: 1.0625rem;
+  font-weight: 500;
+  padding-left: 10px;
+}
+.center .content .phone{
+  margin: 15px 0;
+}
+.right form .text{
+  font-size: 1.0625rem;
+  margin-bottom: 2px;
+  color: #fff;
+}
+.right form .msg{
+  margin-top: 10px;
+  color: #fff;
+}
+.right form .msg textarea{
+  padding-top: 10px;
+  font-family: 'Poppins',sans-serif;
+  resize: none;
+}
+.right form input, .right form textarea{
+  width: 100%;
+  font-size: 1.0625rem;
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  padding-left: 10px;
+}
+.right form input:focus,
+.right form textarea:focus{
+  outline: none;
+}
+.right form input{
+  height: 35px;
+  color: #fff;
+}
+.right form .btn{
+  margin-top: 10px;
+}
+.right form .btn button{
+  height: 40px;
+  width: 45%;
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+  border: 2px solid crimson;
+  background:crimson;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  transition: .3s;
+}
+.right form .btn button:hover{
+  background: none;
+  color: crimson;
+}
+.bottom .center{
+  padding: 5px;
+  font-size: 0.9375rem;
+  background: #12b5ff;
+}
+.bottom center span{
+  color: #fff;
+}
+.bottom center a{
+  color: crimson;
+  font-weight: 600;
+  text-decoration: none;
+}
+.bottom center a:hover{
+  text-decoration: underline;
+}
+
+/* responsive media query start  */
+
+@media (max-width:1300px){
+    .home .max-width{
+        margin-left: 0px;
+    }
+}
+@media (max-width:1104px){
+    .about .about-content .left img{
+        height: 350px;
+        width:350px;
+    }
+}
+@media (max-width:991px){
+    .max-width{
+        padding: 0 50px;
+    }
+}
+@media (max-width:947px){
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+    .menu-btn i.active:before{
+        content:'\f00d';
+    }
+    .navbar .menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left:-100%;
+        top: 0;
+        background: #111;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.2s ease;
+    }
+    .navbar .menu li{
+        display: block;
+    }
+    .navbar .menu.active{
+        left:0; 
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 30px 0;
+        font-size: 25px;
+    }
+    .home .home-content .text-2{
+        font-size: 70px;
+    }
+    .home .home-content .text-3{
+        font-size: 35px;
+    }
+    .home .home-content a{
+        font-size: 23px;
+        padding: 10px 30px;
+    }
+    .max-width{
+        max-width: 930px;
+    }
+    .about .about-content .column{
+        width: 100%;
+    }
+    .about .about-content .left{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 60px;
+    }
+    .about .about-content .right{
+        flex: 100%;
+    }
+    .skills .skills-content .column{
+        width:100%;
+        margin-bottom: 35px;
+    }
+    .contact .contact-content .column{
+        width:100%;
+        margin-bottom: 35px;
+    }
+}
+@media (max-width:690px){
+    .max-width{
+        padding: 0 23px;
+    }
+    .home .home-content .text-2{
+        font-size: 60px;
+    }
+    .home .home-content .text-3{
+        font-size: 32px;
+    }
+    .home .home-content a{
+        font-size: 20px;
+    }
+    #progressbar{
+        display: none;
+    }
+    #scrollPath{
+        display: none;
+    }
+}
+@media (max-width:500px){
+    .home .home-content .text-2{
+        font-size: 50px;
+    }
+    .home .home-content .text-3{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 900px) {
+  footer{
+    position: relative;
+    bottom: 0px;
+  }
+  .main-content{
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .main-content .box{
+    margin: 5px 0;
+  }
+}
