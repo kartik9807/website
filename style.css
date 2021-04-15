@@ -259,7 +259,6 @@ section .title::after{
 }
 
 /* about section styling */
-
 .about .title::after{
     content: 'who i am';
     background: #12b5ff;
@@ -589,22 +588,178 @@ section .title::after{
     background: none;
 }
 
-/* footer section styling */
+/*footer styling*/
 
+.content1{
+  position: relative;
+  margin: 130px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+.content1 .text{
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.content1 .p{
+  font-size: 2.1875rem;
+  font-weight: 600;
+}
 footer{
-    background: #12b5ff;
-    padding: 15px 23px;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    font-weight: 600;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  color: #ddd9d9;
+  background: #12b5ff;
 }
-footer span a{
-    color: crimson;
-    text-decoration: none;
-    font-weight: 800;
+.main-content{
+  display: flex;
+  color: #fff;
 }
-footer span a:hover{
-    text-decoration: underline;
+.main-content .box{
+  flex-basis: 50%;
+  padding: 10px 20px;
+}
+
+.box h2{
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+}
+.box .content{
+  margin: 20px 0 0 0;
+  position: relative;
+}
+.box .content:before{
+  position: relative;
+  content: '';
+  top: -10px;
+  height: 2px;
+  width: 100%;
+  background: #1a1a1a;
+}
+.box .content:after{
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 15%;
+  background: #f12020;
+  top: -10px;
+}
+.left .content p{
+  text-align: justify;
+}
+.left .content a{
+  color: crimson;
+  font-weight: 600;
+}
+.left .content .social{
+  margin: 20px 0 0 0;
+}
+.left .content .social a{
+  padding: 0 2px;
+}
+.left .content .social a span{
+  height: 40px;
+  width: 40px;
+  background: #1a1a1a;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.left .content .social a span:hover{
+  background: #f12020;
+}
+.center .content .fas{
+  font-size: 1.4375rem;
+  background: #1a1a1a;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.center .content .fas:hover{
+  background: #f12020;
+}
+.center .content .text{
+  font-size: 1.0625rem;
+  font-weight: 500;
+  padding-left: 10px;
+}
+.center .content .phone{
+  margin: 15px 0;
+}
+.right form .text{
+  font-size: 1.0625rem;
+  margin-bottom: 2px;
+  color: #fff;
+}
+.right form .msg{
+  margin-top: 10px;
+  color: #fff;
+}
+.right form .msg textarea{
+  padding-top: 10px;
+  font-family: 'Poppins',sans-serif;
+  resize: none;
+}
+.right form input, .right form textarea{
+  width: 100%;
+  font-size: 1.0625rem;
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  padding-left: 10px;
+}
+.right form input:focus,
+.right form textarea:focus{
+  outline: none;
+}
+.right form input{
+  height: 35px;
+  color: #fff;
+}
+.right form .btn{
+  margin-top: 10px;
+}
+.right form .btn button{
+  height: 40px;
+  width: 45%;
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+  border: 2px solid crimson;
+  background:crimson;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  transition: .3s;
+}
+.right form .btn button:hover{
+  background: none;
+  color: crimson;
+}
+.bottom .center{
+  padding: 5px;
+  font-size: 0.9375rem;
+  background: #12b5ff;
+}
+.bottom center span{
+  color: #fff;
+}
+.bottom center a{
+  color: crimson;
+  font-weight: 600;
+  text-decoration: none;
+}
+.bottom center a:hover{
+  text-decoration: underline;
 }
 
 /* responsive media query start  */
@@ -704,6 +859,9 @@ footer span a:hover{
     #progressbar{
         display: none;
     }
+    #scrollPath{
+        display: none;
+    }
 }
 @media (max-width:500px){
     .home .home-content .text-2{
@@ -712,4 +870,17 @@ footer span a:hover{
     .home .home-content .text-3{
         font-size: 30px;
     }
+}
+@media screen and (max-width: 900px) {
+  footer{
+    position: relative;
+    bottom: 0px;
+  }
+  .main-content{
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .main-content .box{
+    margin: 5px 0;
+  }
 }
