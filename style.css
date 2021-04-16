@@ -142,14 +142,14 @@ html{
     height: 45px;
     width: 42px;
     background:green;
-    right:15px;
+    right:30px;
     bottom: 10px;
     text-align: center;
     line-height: 45px;
     color:#fff;
     z-index: 9999;
-    font-size: 30px;
-    border-radius: 6px;
+    font-size: 20px;
+    border-radius: 50%;
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
