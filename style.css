@@ -142,7 +142,7 @@ html{
     height: 45px;
     width: 42px;
     background:green;
-    right:30px;
+    right:10px;
     bottom: 10px;
     text-align: center;
     line-height: 45px;
@@ -156,7 +156,7 @@ html{
     transition: all 0.3s ease;
 }
 .scroll-up-btn.show{
-    bottom: 30px;
+    bottom: 20px;
     opacity: 1;
     pointer-events: auto;
 }
@@ -259,6 +259,7 @@ section .title::after{
 }
 
 /* about section styling */
+
 .about .title::after{
     content: 'who i am';
     background: #12b5ff;
@@ -663,11 +664,12 @@ footer{
   height: 40px;
   width: 40px;
   background: #1a1a1a;
-  color: #fff;
   line-height: 40px;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   border-radius: 5px;
+  font-weight: 200;
+  color: #fff;
   transition: 0.3s;
 }
 .left .content .social a span:hover{
@@ -774,6 +776,9 @@ footer{
         height: 350px;
         width:350px;
     }
+    .right form .btn button{
+        font-size: 13px;
+  }
 }
 @media (max-width:991px){
     .max-width{
@@ -807,7 +812,7 @@ footer{
     }
     .navbar .menu li a{
         display: inline-block;
-        margin: 30px 0;
+        margin: 20px 0;
         font-size: 25px;
     }
     .home .home-content .text-2{
@@ -871,7 +876,7 @@ footer{
         font-size: 30px;
     }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
   footer{
     position: relative;
     bottom: 0px;
@@ -882,5 +887,8 @@ footer{
   }
   .main-content .box{
     margin: 5px 0;
+  }
+  .right form .btn button{
+    font-size: 13px;
   }
 }
