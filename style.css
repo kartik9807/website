@@ -34,11 +34,12 @@ html{
 #progressbar{
     position: fixed;
     top: 0;
+    z-index:5;
     right: 0;
     width: 7px;
     height: 0;
     background: linear-gradient(to top, #008aff,#00ffe7);
-    animation: animate 5s linear infinite;
+    animation: animate 1s linear infinite;
 }
 @keyframes animate{
     0%,100%{
@@ -615,12 +616,11 @@ footer{
 .main-content{
   display: flex;
   color: #fff;
+  padding: 20px 0;
 }
 .main-content .box{
   flex-basis: 50%;
-  padding: 10px 20px;
 }
-
 .box h2{
   font-size: 1.125rem;
   font-weight: 600;
@@ -631,7 +631,7 @@ footer{
   margin: 20px 0 0 0;
   position: relative;
 }
-.box .content:before{
+/*.box .content:before{
   position: relative;
   content: '';
   top: -10px;
@@ -646,7 +646,7 @@ footer{
   width: 15%;
   background: #f12020;
   top: -10px;
-}
+}*/
 .left .content p{
   text-align: justify;
 }
@@ -694,6 +694,12 @@ footer{
   font-weight: 500;
   padding-left: 10px;
 }
+.center .content{
+  padding-left: 15px;
+}
+.center h2{
+  padding-left: 20px;
+}
 .center .content .phone{
   margin: 15px 0;
 }
@@ -734,6 +740,7 @@ footer{
   width: 45%;
   border: none;
   outline: none;
+  padding: 6px 7px;
   font-size: 1.3rem;
   border: 2px solid crimson;
   background:crimson;
@@ -808,7 +815,8 @@ footer{
         display: block;
     }
     .navbar .menu.active{
-        left:0; 
+        left:0;
+        transform: rotate(-360deg);
     }
     .navbar .menu li a{
         display: inline-block;
@@ -891,4 +899,11 @@ footer{
   .right form .btn button{
     font-size: 13px;
   }
-}
+  .center .content{
+    padding: 0;
+  }
+  .center h2{
+    padding: 5px;
+  }
+} 
+
