@@ -22,6 +22,12 @@
 </head>
 <body>
 
+    <!-- custom pre-loader -->
+
+    <div class="loader">
+        <div class="ring"><h1>Loading...</h1></div>
+    </div>
+
     <!-- custom scrollbar  -->
 
     <div id="progressbar"></div>
@@ -335,9 +341,22 @@
         </div>
     </footer>
 
-
+    <!-- script for custom pre-loader -->
+    
+    <script>
+        const loader = document.querySelector(".loader");
+        window.onload = function(){
+            setTimeout(function(){
+            loader.style.opacity = "0";
+            setTimeout(function(){
+                loader.style.display = "none";
+            }, 500);
+            },1500);
+        }
+    </script>
     
 
     <script src="java.js"></script>
 </body>
 </html>
+
