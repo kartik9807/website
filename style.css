@@ -385,7 +385,7 @@ section .title::after{
 }
 
 .services .title::after{
-  content: "What i Know";
+  content: "What i provide";
   background: #111;
 }
 .services .boxes{
